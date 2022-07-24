@@ -1,0 +1,5 @@
+python-Levenshtein
+fuzzywuzzy
+scikit-learn
+fastapi
+uvicorn[standard]
