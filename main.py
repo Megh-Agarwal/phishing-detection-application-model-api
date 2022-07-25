@@ -1,8 +1,22 @@
 from fastapi import Request, FastAPI, status, Response
+from fastapi.middleware.cors import CORSMiddleware
 import pickle
 from scripts.breakdown import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = FastAPI()
+
+origins = [
+    os.environ["REQUESTER"]
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins
+)
 
 @app.post("/predict")
 async def predict(response: Response, request: Request, status_code=200, response_class=Response):

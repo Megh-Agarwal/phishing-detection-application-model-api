@@ -3,3 +3,4 @@ fuzzywuzzy
 scikit-learn
 fastapi
 uvicorn[standard]
+python-dotenv
