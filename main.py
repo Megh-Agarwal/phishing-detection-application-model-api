@@ -4,6 +4,7 @@ import pickle
 from scripts.breakdown import *
 from dotenv import load_dotenv
 import os
+import urllib.request
 
 load_dotenv()
 
@@ -12,6 +13,9 @@ app = FastAPI()
 origins = [
     os.environ["REQUESTER"]
 ]
+
+if os.environ["MODE"] == "production":
+    urllib.request.urlretrieve("https://www.dropbox.com/s/6g0h5xfkijyjuwp/model.pkl?dl=1", "model.pkl")
 
 app.add_middleware(
     CORSMiddleware,
