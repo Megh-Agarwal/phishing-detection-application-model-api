@@ -14,8 +14,9 @@ origins = [
     os.environ["REQUESTER"]
 ]
 
-if os.environ["MODE"] == "production":
+if (os.environ["MODE"] == "production"):
     urllib.request.urlretrieve("https://www.dropbox.com/s/6g0h5xfkijyjuwp/model.pkl?dl=1", "model.pkl")
+    print("Downloading model.pkl")
 
 app.add_middleware(
     CORSMiddleware,
